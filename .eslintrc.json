@@ -1,0 +1,43 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jquery": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "globals": {
+        "wp": "readonly",
+        "fabric": "readonly",
+        "WebFont": "readonly",
+        "dallasDesignerData": "readonly",
+        "dallasDesignerTranslations": "readonly"
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "no-unused-vars": ["warn"],
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "prettier/prettier": ["error", {
+            "singleQuote": true,
+            "tabWidth": 4,
+            "trailingComma": "es5",
+            "printWidth": 100
+        }]
+    },
+    "ignorePatterns": [
+        "dist/",
+        "node_modules/",
+        "vendor/",
+        "*.min.js"
+    ]
+}
