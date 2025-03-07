@@ -1,0 +1,165 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Development Environment",
+            "dependsOn": [
+                "Docker Compose Up",
+                "Watch Assets",
+                "PHP Tests Watch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Compose Up",
+            "type": "shell",
+            "command": "docker-compose up -d",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Compose Down",
+            "type": "shell",
+            "command": "docker-compose down",
+            "problemMatcher": []
+        },
+        {
+            "label": "Watch Assets",
+            "type": "npm",
+            "script": "dev",
+            "problemMatcher": [
+                "$eslint-stylish",
+                "$lessCompile"
+            ],
+            "isBackground": true
+        },
+        {
+            "label": "Build Assets",
+            "type": "npm",
+            "script": "build",
+            "group": "build",
+            "problemMatcher": [
+                "$eslint-stylish",
+                "$lessCompile"
+            ]
+        },
+        {
+            "label": "PHP Tests Watch",
+            "type": "shell",
+            "command": "vendor/bin/phpunit-watcher watch",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Run All Tests",
+            "dependsOn": [
+                "PHP Tests",
+                "JavaScript Tests"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "PHP Tests",
+            "type": "shell",
+            "command": "composer test",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "JavaScript Tests",
+            "type": "npm",
+            "script": "test",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Code Quality Checks",
+            "dependsOn": [
+                "PHP CodeSniffer",
+                "ESLint",
+                "PHPStan"
+            ],
+            "group": "test",
+            "problemMatcher": []
+        },
+        {
+            "label": "PHP CodeSniffer",
+            "type": "shell",
+            "command": "composer run-script phpcs",
+            "problemMatcher": {
+                "owner": "php",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.+):(\\d+):(\\d+):\\s+(warning|error)\\s+-\\s+(.+)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "ESLint",
+            "type": "npm",
+            "script": "lint",
+            "problemMatcher": ["$eslint-stylish"]
+        },
+        {
+            "label": "PHPStan",
+            "type": "shell",
+            "command": "composer run-script phpstan",
+            "problemMatcher": {
+                "owner": "php",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.+):(\\d+):\\s+(.+)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            }
+        },
+        {
+            "label": "Fix Code Style",
+            "dependsOn": [
+                "PHP CS Fixer",
+                "Prettier"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "PHP CS Fixer",
+            "type": "shell",
+            "command": "composer run-script fix",
+            "problemMatcher": []
+        },
+        {
+            "label": "Prettier",
+            "type": "npm",
+            "script": "format",
+            "problemMatcher": []
+        },
+        {
+            "label": "Create Release",
+            "type": "shell",
+            "command": "bin/create-release.sh",
+            "problemMatcher": []
+        }
+    ]
+}
