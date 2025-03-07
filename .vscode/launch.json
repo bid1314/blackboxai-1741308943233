@@ -1,0 +1,65 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html/wp-content/plugins/dallas-embroidery-designer": "${workspaceFolder}"
+            },
+            "xdebugSettings": {
+                "max_children": 128,
+                "max_data": 512,
+                "max_depth": 3
+            }
+        },
+        {
+            "name": "Launch Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8000",
+            "webRoot": "${workspaceFolder}",
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*",
+                "webpack:///./~/*": "${webRoot}/node_modules/*"
+            }
+        },
+        {
+            "name": "Jest Current File",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/node_modules/.bin/jest",
+            "args": [
+                "${fileBasename}",
+                "--runInBand",
+                "--no-cache"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "disableOptimisticBPs": true
+        },
+        {
+            "name": "PHPUnit Current File",
+            "type": "php",
+            "request": "launch",
+            "program": "${workspaceFolder}/vendor/bin/phpunit",
+            "args": [
+                "--configuration",
+                "${workspaceFolder}/phpunit.xml.dist",
+                "${file}"
+            ],
+            "cwd": "${workspaceFolder}",
+            "port": 9003,
+            "runtimeExecutable": "php"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Full Stack Debug",
+            "configurations": ["Listen for Xdebug", "Launch Chrome"]
+        }
+    ]
+}
