@@ -1,0 +1,90 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    },
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "php.suggest.basic": false,
+    "intelephense.environment.phpVersion": "7.4",
+    "intelephense.files.maxSize": 5000000,
+    "phpcs.enable": true,
+    "phpcs.standard": "./phpcs.xml.dist",
+    "phpcs.executablePath": "./vendor/bin/phpcs",
+    "php-cs-fixer.executablePath": "./vendor/bin/php-cs-fixer",
+    "php-cs-fixer.config": "./.php-cs-fixer.php",
+    "php-cs-fixer.onsave": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "jest.autoRun": {
+        "watch": true,
+        "onSave": "test-file"
+    },
+    "jest.jestCommandLine": "npm test --",
+    "files.associations": {
+        "*.php": "php",
+        "*.js": "javascript",
+        "*.css": "css",
+        "*.json": "json",
+        "*.md": "markdown"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/.idea": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true,
+        "**/dist": false
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/dist": true,
+        "**/.git": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#0073aa",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.noFolderBackground": "#0073aa",
+        "statusBar.debuggingBackground": "#0073aa"
+    },
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "debug.javascript.autoAttachFilter": "smart",
+    "debug.php.log": true,
+    "debug.php.pathMappings": {
+        "/var/www/html": "${workspaceFolder}"
+    }
+}
