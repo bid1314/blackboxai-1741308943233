@@ -1,0 +1,42 @@
+{
+    "recommendations": [
+        // PHP
+        "bmewburn.vscode-intelephense-client",
+        "ikappas.phpcs",
+        "junstyle.php-cs-fixer",
+        "neilbrayfield.php-docblocker",
+        "xdebug.php-debug",
+
+        // JavaScript
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "orta.vscode-jest",
+        "christian-kohler.npm-intellisense",
+
+        // CSS
+        "stylelint.vscode-stylelint",
+        "mrmlnc.vscode-scss",
+
+        // Git
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+
+        // Docker
+        "ms-azuretools.vscode-docker",
+
+        // WordPress
+        "wordpresstoolbox.wordpress-toolbox",
+        "johnbillion.vscode-wordpress-hooks",
+
+        // General
+        "editorconfig.editorconfig",
+        "mikestead.dotenv",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "gruntfuggly.todo-tree",
+        "wayou.vscode-todo-highlight",
+        "shardulm94.trailing-spaces",
+        "visualstudioexptteam.vscodeintellicode"
+    ],
+    "unwantedRecommendations": []
+}
