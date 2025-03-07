@@ -1,0 +1,83 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Build output
+/dist
+*.min.js
+*.min.css
+*.map
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# WordPress specific
+wp-config.php
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/cache/
+wp-content/backups/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+/coverage
+/tests/coverage
+.phpunit.result.cache
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Package files
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Composer
+composer.phar
+/vendor/
+
+# NPM/Yarn
+yarn.lock
+package-lock.json
+
+# Documentation
+/docs/_site/
+/docs/.sass-cache/
+
+# Development tools
+.phplint-cache
+.php_cs.cache
+.eslintcache
