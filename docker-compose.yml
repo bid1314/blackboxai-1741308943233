@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html/wp-content/plugins/dallas-embroidery-designer
+      - wordpress:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: somewordpress
+    depends_on:
+      - db
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  node:
+    image: node:16
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: npm run dev
+    ports:
+      - "3000:3000"
+
+volumes:
+  wordpress:
+  db_data:
+
+networks:
+  default:
+    name: dallas-designer-network
