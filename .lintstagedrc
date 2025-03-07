@@ -1,0 +1,16 @@
+{
+    "*.php": [
+        "composer run-script phpcs",
+        "composer run-script phpstan"
+    ],
+    "*.js": [
+        "eslint --fix",
+        "prettier --write"
+    ],
+    "*.{css,scss}": [
+        "prettier --write"
+    ],
+    "*.{json,md}": [
+        "prettier --write"
+    ]
+}
